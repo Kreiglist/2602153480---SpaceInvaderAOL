@@ -10,6 +10,8 @@ public class Ship : MonoBehaviour, IMovement, IShoot, IDamageable
     [SerializeField] private Health health;
     [SerializeField] private float speed;
     [SerializeField] private Vector2 direction;
+    [SerializeField] public int scoreValue = 10;
+    [SerializeField] private AudioClip damageAudio;
 
     private void Awake()
     {
@@ -33,8 +35,11 @@ public class Ship : MonoBehaviour, IMovement, IShoot, IDamageable
     {
         health.Reduce(damage);
 
+        AudioManager.instance.PlayAudioClip(damageAudio, transform, 1f);
+
         if (health.currentHealth <= 0)
         {
+            ScoreManager.Instance.AddScore(scoreValue);
             Destroy(gameObject);
         }
     }

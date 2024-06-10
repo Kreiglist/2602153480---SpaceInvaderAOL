@@ -24,7 +24,7 @@ public class GameManager : Singleton
             Vector3 playerSpawnPosition = new Vector3(1, 0, 0);
             GameObject playerSpawnPoint = new GameObject("PlayerSpawnPoint");
             playerSpawnPoint.transform.position = playerSpawnPosition;
-            spawnController.Spawn("ShipProt", 1, 0, playerSpawnPoint.transform);
+            spawnController.Spawn("Ship", 1, 0, playerSpawnPoint.transform);
 
             // Set the enemy spawn points
             List<Transform> enemySpawnPoints = new List<Transform>();
@@ -33,7 +33,8 @@ public class GameManager : Singleton
             enemySpawnPoints.Add(CreateSpawnPoint(new Vector3(5, 5, 0)));
 
             // Start endless spawning of enemies
-            spawnController.SpawnEndlessly("EnemyProt", 5, enemySpawnPoints);
+            spawnController.SpawnEndlessly("Enemy Zigzag", 5, enemySpawnPoints);
+            spawnController.SpawnEndlessly("Enemy Forward", 7, enemySpawnPoints);
         }
     }
 
