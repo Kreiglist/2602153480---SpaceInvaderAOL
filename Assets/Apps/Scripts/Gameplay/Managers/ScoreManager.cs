@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
-    [SerializeField] public TextMeshProUGUI scoreText; // Use TextMeshProUGUI instead of Text
+    [SerializeField] private Text scoreText;
+    [SerializeField] private Text highScoreText;
 
     private int score;
 
@@ -27,17 +28,32 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         UpdateScoreText();
+        UpdateHighScoreText();
     }
 
     public void AddScore(int value)
     {
         score += value;
         UpdateScoreText();
+        CheckHighScore();
     }
 
     private void UpdateScoreText()
     {
         scoreText.text = "Score: " + score.ToString();
     }
-}
 
+    private void CheckHighScore()
+    {
+        if (score > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+            UpdateHighScoreText(); // Update the high score text whenever a new high score is set
+        }
+    }
+
+    private void UpdateHighScoreText()
+    {
+        highScoreText.text = "Highscore: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
+    }
+}

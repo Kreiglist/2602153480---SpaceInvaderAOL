@@ -13,7 +13,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        movement.SetDirection(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        movement.SetDirection(Input.GetAxisRaw("Horizontal"), 0f);
 
         if (Input.GetKey(KeyCode.Space))
         {

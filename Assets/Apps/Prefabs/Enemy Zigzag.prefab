@@ -165,7 +165,7 @@ MonoBehaviour:
   health:
     currentHealth: 2
     maxHealth: 2
-  speed: 4
+  speed: 1
   direction: {x: 0, y: 0}
   scoreValue: 10
   damageAudio: {fileID: 8300000, guid: 81e56523945e38b4c869b98f971f4b5b, type: 3}
@@ -182,4 +182,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 3
-  horizontalSpeed: 3
+  horizontalSpeed: 1

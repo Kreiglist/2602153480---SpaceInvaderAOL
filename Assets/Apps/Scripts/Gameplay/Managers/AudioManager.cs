@@ -31,5 +31,8 @@ public class AudioManager : MonoBehaviour
 
         // Get len of SFX clip
         float clipLength = audioSource.clip.length;
+
+        // Destroy the audio object
+        Destroy(audioSource.gameObject, clipLength);
     }
 }

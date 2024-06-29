@@ -21,7 +21,7 @@ public class GameManager : Singleton
         if (spawnController != null)
         {
             // Set the player spawn position
-            Vector3 playerSpawnPosition = new Vector3(1, 0, 0);
+            Vector3 playerSpawnPosition = new Vector3(1, -3, 0);
             GameObject playerSpawnPoint = new GameObject("PlayerSpawnPoint");
             playerSpawnPoint.transform.position = playerSpawnPosition;
             spawnController.Spawn("Ship", 1, 0, playerSpawnPoint.transform);

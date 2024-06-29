@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
+    [SerializeField] private Canvas canvas;
+
+    void Start()
     {
-        SceneManager.LoadScene("Gameplay");
+        // canvas = GetComponent<Canvas>();
+        canvas.enabled = false;
+
     }
 
-    public void BackToMenu()
+    public void Settings()
     {
-        SceneManager.LoadScene("MainMenu");
+        canvas.enabled = !canvas.enabled;
     }
 
     public void QuitGame()
